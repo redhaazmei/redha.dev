@@ -24,7 +24,7 @@ const Hackathons = () => {
       <SimpleGrid columns={[1, 2]} spacing={4} mb={"8"}>
         {hackathons.map((hackathon) => {
           return (
-            <Box border="1px" borderRadius={"lg"} p={"4"}>
+            <Box key={hackathon.title} border="1px" borderRadius={"lg"} p={"4"}>
               <Heading size={"md"} mb={"2"}>
                 {hackathon.title}
               </Heading>
