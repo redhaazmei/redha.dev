@@ -6,8 +6,8 @@ const config = {
 };
 
 const fonts = {
-  heading: "Inter",
-  body: "Inter",
+  heading: `"Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
+  body: `"Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
 };
 
 const styles = {
