@@ -8,7 +8,8 @@ export default class Document extends NextDocument {
       <Html lang="en">
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
+          <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=optional" />
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=optional" rel="stylesheet" />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
