@@ -14,7 +14,6 @@ export default class Document extends NextDocument {
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
-          <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=optional" crossOrigin="anonymous" />
         </body>
       </Html>
     );
