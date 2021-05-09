@@ -7,8 +7,8 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=optional" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=optional" />
           <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=optional" crossOrigin="anonymous" />
         </Head>
         <body>
