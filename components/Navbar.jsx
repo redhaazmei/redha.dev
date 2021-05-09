@@ -22,12 +22,12 @@ const Navbar = () => {
         </Flex>
         <Divider mb={"4"} />
         <Stack direction={"row"}>
-          <Link href={"/"}>
+          <Link href="/">
             <CustomButton size={"xs"} width={"8em"} borderRadius={"full"} isActive={router.pathname === "/" ? true : false}>
               Home
             </CustomButton>
           </Link>
-          <Link href={"/blog"}>
+          <Link href="/blog">
             <CustomButton size={"xs"} width={"8em"} borderRadius={"full"} isActive={router.pathname === "/blog" ? true : false}>
               Blog
             </CustomButton>
