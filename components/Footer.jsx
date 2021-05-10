@@ -1,7 +1,8 @@
-import { Divider, Flex, Text, Stack, Icon, Link, Box } from "@chakra-ui/react";
+import { Divider, Flex, Text, Stack, Icon, Link, Box, useColorMode } from "@chakra-ui/react";
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 const Footer = () => {
+  const { colorMode } = useColorMode();
   const socials = [
     {
       site: "Github",
@@ -29,7 +30,7 @@ const Footer = () => {
             {socials.map((social) => {
               return (
                 <Link key={social.site} href={social.href} isExternal>
-                  <Icon as={social.icon} w="5" h="5" _hover={{ color: "teal.300" }} />
+                  <Icon as={social.icon} w="5" h="5" _hover={{ color: colorMode === "dark" ? "primary" : "secondary" }} />
                 </Link>
               );
             })}
