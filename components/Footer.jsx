@@ -21,7 +21,7 @@ const Footer = () => {
   ];
   return (
     <>
-      <Box mb={"8"}>
+      <Box mb={"8"} mt={"auto"}>
         <Divider mb={"4"} />
         <Flex direction={["column-reverse", "row"]} align="center" justify="space-between">
           <Text fontSize={"xs"}>&copy;{new Date().getFullYear()} Redha Azmei. All Rights Reserved.</Text>
