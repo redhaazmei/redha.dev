@@ -25,6 +25,9 @@ const styles = {
       letterSpacing: "tight",
       color: props.colorMode === "dark" ? "gray.300" : "gray.700",
     },
+    strong: {
+      color: props.colorMode === "dark" ? "white" : "black",
+    },
   }),
 };
 
