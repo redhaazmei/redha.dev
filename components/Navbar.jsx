@@ -28,7 +28,7 @@ const Navbar = () => {
             </CustomButton>
           </Link>
           <Link href="/blog">
-            <CustomButton size={"xs"} width={"8em"} borderRadius={"full"} isActive={router.pathname === "/blog" ? true : false}>
+            <CustomButton size={"xs"} width={"8em"} borderRadius={"full"} isActive={router.pathname !== "/" ? true : false}>
               Blog
             </CustomButton>
           </Link>
