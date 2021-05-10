@@ -10,6 +10,11 @@ const fonts = {
   body: `"Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
 };
 
+const colors = {
+  primary: "#4FD1C5",
+  secondary: "#38B2AC",
+};
+
 const styles = {
   global: (props) => ({
     "html, body": {
@@ -17,7 +22,7 @@ const styles = {
       lineHeight: "tall",
     },
     "h1, h2, h3, h4, h5, h6": {
-      letterSpacing: "tighter",
+      letterSpacing: "tight",
       color: props.colorMode === "dark" ? "white" : "black",
     },
     "p, ul, ol": {
@@ -28,8 +33,23 @@ const styles = {
     strong: {
       color: props.colorMode === "dark" ? "white" : "black",
     },
+    ".prose": {
+      "h1, h2, h3, h4, h5, h6": {
+        fontWeight: "bold",
+      },
+      pre: {
+        w: ["xs", "md", "xl", "2xl"],
+        pt: "2",
+        px: "2",
+        borderRadius: "lg",
+        bg: props.colorMode === "dark" ? "gray.900" : "black",
+        fontFamily: "Fira Code",
+        fontSize: ["xs", "sm"],
+        overflowX: "auto",
+      },
+    },
   }),
 };
 
-const theme = extendTheme({ config, fonts, styles });
+const theme = extendTheme({ config, fonts, colors, styles });
 export default theme;
