@@ -9,7 +9,7 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
-      <Box mb={"8"}>
+      <Box mb={"4"}>
         <Flex justifyContent={"space-between"} alignItems={"center"} mb={"4"}>
           <Box>
             <Heading size={"lg"}>Redha Azmei</Heading>
