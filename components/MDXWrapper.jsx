@@ -1,7 +1,3 @@
-import { Box } from "@chakra-ui/react";
-
-const MDXWrapper = ({ children, ...props }) => {
-  return <Box {...props}>{children}</Box>;
-};
+const MDXWrapper = (props) => <div className="prose" {...props} />;
 
 export default MDXWrapper;
