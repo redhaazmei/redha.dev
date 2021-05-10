@@ -1,6 +1,6 @@
 import { useColorMode } from "@chakra-ui/react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import nightowllight from "prism-react-renderer/themes/nightOwllight";
+import nightowllight from "prism-react-renderer/themes/nightOwlLight";
 import nightowldark from "prism-react-renderer/themes/nightOwl";
 
 const MDXCode = ({ children, className }) => {
