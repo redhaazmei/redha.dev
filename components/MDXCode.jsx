@@ -7,7 +7,7 @@ const MDXCode = ({ children, className }) => {
   const { colorMode } = useColorMode();
   const language = className.replace(/language-/, "");
   return (
-    <Highlight {...defaultProps} theme={colorMode === "dark" ? nightowldark : nightowldark} code={children} language={language}>
+    <Highlight {...defaultProps} theme={colorMode === "dark" ? nightowldark : nightowllight} code={children} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className}>
           {tokens.map((line, i) => (
