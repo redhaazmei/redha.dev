@@ -42,7 +42,7 @@ const styles = {
         pt: "2",
         px: "2",
         borderRadius: "lg",
-        bg: props.colorMode === "dark" ? "gray.900" : "black",
+        bg: props.colorMode === "dark" ? "gray.900" : "gray.100",
         fontFamily: "Fira Code",
         fontSize: ["xs", "sm"],
         overflowX: "auto",
