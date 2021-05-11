@@ -44,7 +44,8 @@ const styles = {
         fontFamily: "Fira Code",
         fontSize: ["xs", "sm"],
         "&::-webkit-scrollbar": {
-          display: "none",
+          w: "0",
+          bg: "transparent",
         },
       },
     },
