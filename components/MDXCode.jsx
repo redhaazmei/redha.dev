@@ -9,7 +9,7 @@ const MDXCode = ({ children, className }) => {
   return (
     <Highlight {...defaultProps} theme={colorMode === "dark" ? nightowldark : nightowllight} code={children} language={language}>
       {({ className, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ overflowX: "auto", whiteSpace: "nowrap", paddingTop: "2em", paddingLeft: "1em", scrollbarWidth: "none" }}>
+        <pre className={className} style={{ overflowX: "auto", whiteSpace: "nowrap", paddingTop: "2em", paddingLeft: "1em" }}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (

@@ -39,14 +39,13 @@ const styles = {
       },
       pre: {
         w: ["xs", "md", "xl", "2xl"],
-        // pt: "3",
-        // px: "2",
         borderRadius: "lg",
         bg: props.colorMode === "dark" ? "gray.900" : "gray.100",
         fontFamily: "Fira Code",
         fontSize: ["xs", "sm"],
-        // whiteSpace: "nowrap",
-        // overflowX: "auto",
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
       },
     },
   }),
