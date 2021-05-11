@@ -44,8 +44,16 @@ const styles = {
         fontFamily: "Fira Code",
         fontSize: ["xs", "sm"],
         "&::-webkit-scrollbar": {
-          w: "0",
+          h: "0.5em",
           bg: "transparent",
+        },
+        "&::-webkit-scrollbar-track": {
+          borderRadius: "lg",
+          bg: "transparent",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          borderRadius: "lg",
+          bg: props.colorMode === "dark" ? "gray.600" : "gray.300",
         },
       },
     },
