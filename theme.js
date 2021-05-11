@@ -45,7 +45,7 @@ const styles = {
         bg: props.colorMode === "dark" ? "gray.900" : "gray.100",
         fontFamily: "Fira Code",
         fontSize: ["xs", "sm"],
-        whiteSpace: "pre",
+        whiteSpace: "nowrap",
         overflowX: "auto",
       },
     },
