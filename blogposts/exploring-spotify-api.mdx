@@ -75,27 +75,28 @@ SPOTIFY_REFRESH_TOKEN=
 
 We can now request an access token using our client ID, client secret, and `refresh_token`.
 
-```js:lib/spotify.js
-import querystring from 'querystring';
+```js
+//lib/spotify.js
+import querystring from "querystring";
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 
-const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT, {
-    method: 'POST',
+    method: "POST",
     headers: {
       Authorization: `Basic ${basic}`,
-      'Content-Type': 'application/x-www-form-urlencoded'
+      "Content-Type": "application/x-www-form-urlencoded",
     },
     body: querystring.stringify({
-      grant_type: 'refresh_token',
-      refresh_token
-    })
+      grant_type: "refresh_token",
+      refresh_token,
+    }),
   });
 
   return response.json();
@@ -105,7 +106,8 @@ const getAccessToken = async () => {
 Use this `access_token` to securely request your top tracks.
 This assumes you added the `user-top-read` scope at the beginning.
 
-```js:lib/spotify.js
+```js
+//lib/spotify.js
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
 
 export const getTopTracks = async () => {
@@ -113,8 +115,8 @@ export const getTopTracks = async () => {
 
   return fetch(TOP_TRACKS_ENDPOINT, {
     headers: {
-      Authorization: `Bearer ${access_token}`
-    }
+      Authorization: `Bearer ${access_token}`,
+    },
   });
 };
 ```
@@ -125,17 +127,18 @@ Let's test our communication with Spotify.
 First, create a new file at `pages/api/top-tracks.js`.
 Then, import the new function `getTopTracks`.
 
-```js:pages/api/top-tracks.js
-import { getTopTracks } from '../../lib/spotify';
+```js
+//pages/api/top-tracks.js
+import { getTopTracks } from "../../lib/spotify";
 
 export default async (_, res) => {
   const response = await getTopTracks();
   const { items } = await response.json();
 
   const tracks = items.slice(0, 10).map((track) => ({
-    artist: track.artists.map((_artist) => _artist.name).join(', '),
+    artist: track.artists.map((_artist) => _artist.name).join(", "),
     songUrl: track.external_urls.spotify,
-    title: track.name
+    title: track.name,
   }));
 
   return res.status(200).json({ tracks });

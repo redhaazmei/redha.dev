@@ -23,10 +23,10 @@ One advantage of this pattern is it allows pages to be served from a global CDN 
 
 Let's look at an example for a profile page. This will initially render a loading skeleton. Once the request for a user has finished, it will show the user's name.
 
-```jsx:pages/profile.js
+```jsx
 export default Profile = () => {
   // Fetch the user client-side
-  const { user } = useUser({ redirectTo: '/login' });
+  const { user } = useUser({ redirectTo: "/login" });
 
   // Server-render loading skeleton
   if (!user) {
@@ -52,7 +52,9 @@ export async function getServerSideProps(context) {
 
 Let's transform the profile example from earlier to use server-side rendering. If there's a session, return `session` as a prop to the `Profile` component in the page. Otherwise, redirect to `/login` on the server-side. Notice there is not a loading skeleton in this example.
 
-```jsx:pages/profile.js
+```jsx
+//pages/profile.js;
+
 export default Profile = ({ session }) => {
   return <p>{session.user.name}</p>;
 };
@@ -66,9 +68,9 @@ export async function getServerSideProps({ req, res }) {
     return {
       props: {},
       redirect: {
-        destination: '/login',
-        permanent: false
-      }
+        destination: "/login",
+        permanent: false,
+      },
     };
   }
 
@@ -173,13 +175,15 @@ const authRequest = await fetch("/api/login", {
 
 Then, we can use Magic's Node SDK to exchange the unique identifier for information about the user. Finally, we'll want to persist the user's session by creating a cookie. You can either [write this logic yourself](https://github.com/vercel/next.js/blob/canary/examples/with-magic/lib/auth-cookies.js) or use [next-iron-session](https://github.com/vercel/next.js/tree/canary/examples/with-iron-session).
 
-```jsx:pages/api/login.js
-import { Magic } from '@magic-sdk/admin';
+```jsx
+//pages/api/login.js
+
+import { Magic } from "@magic-sdk/admin";
 
 let magic = new Magic(process.env.MAGIC_SECRET_KEY);
 
 export default async (req, res) => {
-  if (req.method !== 'POST') return res.status(405).end();
+  if (req.method !== "POST") return res.status(405).end();
 
   // Exchange the DID from Magic for some user data
   const did = magic.utils.parseAuthorizationHeader(req.headers.authorization);
@@ -197,8 +201,8 @@ For more details, see the [`with-magic` example](https://github.com/vercel/next.
 
 Auth0 can support both authentication patterns. You can also utilize [API routes](https://nextjs.org/docs/api-routes/introduction) for logging in/out and retrieving user information. For example, after initializing the [Auth0 SDK](@auth0/nextjs-auth0), you can log-in by calling `handleLogin`.
 
-```jsx:pages/api/login.js
-import auth0 from '../../lib/auth0';
+```jsx
+import auth0 from "../../lib/auth0";
 
 export default async function login(req, res) {
   try {
@@ -212,8 +216,8 @@ export default async function login(req, res) {
 
 Auth0 populates the session so you can utilize static generation or `getServerSideProps` for server-side rendering. Here's an example of the latter.
 
-```jsx:pages/profile.js
-import auth0 from '../../lib/auth0';
+```jsx
+import auth0 from "../../lib/auth0";
 
 export async function getServerSideProps({ req, res }) {
   const session = await auth0.getSession(req);
@@ -222,9 +226,9 @@ export async function getServerSideProps({ req, res }) {
     return {
       props: {},
       redirect: {
-        destination: '/api/login',
-        permanent: false
-      }
+        destination: "/api/login",
+        permanent: false,
+      },
     };
   }
 
@@ -245,13 +249,13 @@ The Next.js team is [working to add support](https://github.com/vercel/next.js/d
 
 Here's an example using a provider like Auth0.
 
-```jsx:_app.js
+```jsx
 App.getInitialProps = async ({ req, res }) => {
   // Only run on the server
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     const session = await auth0.getSession(req);
     if (!session || !session.user) {
-      res.writeHead(307, { Location: '/api/login' });
+      res.writeHead(307, { Location: "/api/login" });
       res.end();
 
       return;
@@ -265,7 +269,7 @@ App.getInitialProps = async ({ req, res }) => {
 If you require some pages to render as static HTML, you should use `getServerSideProps`
 in every page requiring server-rendering. You can extract this logic to a shared function to improve code reuse.
 
-```jsx:lib/auth.js
+```jsx
 export const requirePageAuth = (inner) => {
   return async (context) => {
     const session = await getSession(context.req);
@@ -274,9 +278,9 @@ export const requirePageAuth = (inner) => {
       return {
         props: {},
         redirect: {
-          destination: '/login',
-          permanent: false
-        }
+          destination: "/login",
+          permanent: false,
+        },
       };
     }
 
@@ -285,7 +289,7 @@ export const requirePageAuth = (inner) => {
 };
 ```
 
-```jsx:pages/profile.js
+```jsx
 export default Profile = ({ session }) => {
   return <p>{session.user.name}</p>;
 };

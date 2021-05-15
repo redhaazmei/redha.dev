@@ -10,7 +10,7 @@ Typography accounts for [95% of web design](https://ia.net/topics/the-web-is-all
 
 [Over time](https://thehistoryoftheweb.com/web-fonts/), recommendations for using web fonts have changed as browsers adopted new standards. Now in 2021, I wanted to learn the best practices for using web fonts on high-performance sites.
 
-## System Fonts
+# System Fonts
 
 The fastest way to use a web font is none. Browsers include a set of [web-safe fonts](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Web_safe_fonts) (e.g. Arial, Georgia, Times New Roman) you can use by default.
 
@@ -20,7 +20,7 @@ Using web-safe fonts or the [system font stack](https://systemfontstack.com/) wi
 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 ```
 
-## Why Use Web Fonts?
+# Why Use Web Fonts?
 
 If system fonts are the fastest option, why do web fonts exist? Branding, improved design, and cross browser and device consistency. [82% of web pages for desktop](https://almanac.httparchive.org/en/2020/fonts) use web fonts.
 
@@ -32,7 +32,7 @@ Let's cover five different areas for high-performance web fonts and conclude wit
 - Variable Fonts
 - Subsetting
 
-## Self Hosting
+# Self Hosting
 
 [Google Fonts](https://fonts.google.com/) is responsible for [70% of all web font usage](https://almanac.httparchive.org/en/2020/fonts#serving-with-a-service). With over 1000 fonts, they provide easy access to quality fonts, multiple formats, and performant defaults (pre-connecting and swapping).
 
@@ -50,7 +50,7 @@ Cache-Control: public, immutable, max-age=31536000
 
 If you need Google Fonts, [use these optimizations](https://csswizardry.com/2020/05/the-fastest-google-fonts/). With the latest changes in the v2 API, you can tailor fonts to specific users and platforms (including variable fonts).
 
-## Preloading
+# Preloading
 
 The browser assigns [loading priorities](https://web.dev/prioritize-resources/) to different types of resources. By default, CSS will be loaded before scripts and images. You can influence the importance of resources by [preloading critical assets](https://web.dev/preload-critical-assets/).
 
@@ -72,7 +72,7 @@ As of 2020, [75% of web fonts use WOFF2](https://almanac.httparchive.org/en/2019
 
 > Support: All modern browsers except Firefox.
 
-## Font Display
+# Font Display
 
 `font-display` allows you to modify the rendering behavior of web fonts with values such as `auto`, `swap`, `block`, `fallback` and `optional`. When loading web fonts, we want to prevent [layout shift](https://web.dev/cls/). This occurs in two ways:
 
@@ -92,7 +92,7 @@ Browsers currently have a default strategy similar to `block`. The only option t
 
 > Support: All modern browsers
 
-## Variable Fonts
+# Variable Fonts
 
 [Variable fonts](https://web.dev/variable-fonts/) allow us to combine multiple styles and weights (e.g. bold, italic) into a single font file.
 
@@ -110,7 +110,7 @@ You can try out different variable font options [here](https://developer.mozilla
 
 > Support: All modern browsers. Even Google Fonts v2 API has support for variable fonts.
 
-## Subsettings
+# Subsettings
 
 Font files contain multiple languages and glyphs, which increase the file size. Subsetting is the removal of characters you don’t need.
 
@@ -127,7 +127,7 @@ For example, we might use the Inter variable font and subset to latin languages.
 }
 ```
 
-## Conclusion
+# Conclusion
 
 1. Use a variable font
 2. Preload your font file
@@ -136,7 +136,7 @@ For example, we might use the Inter variable font and subset to latin languages.
 
 [Here's an example](https://github.com/leerob/leerob.io) of a site implementing all these recommendations.
 
-## Future
+# Future
 
 If you need to use `font-display: swap`, future support for [Font Metrics Override](https://www.youtube.com/watch?t=176&v=Z6wjUOSh9Tk&feature=youtu.be) will reduce layout shift when swapping.
 
