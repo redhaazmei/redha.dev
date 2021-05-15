@@ -4,7 +4,7 @@ import { getallslugs, getsinglepost } from "lib/getposts";
 import { NextSeo } from "next-seo";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import { Box, Text, Icon, Flex, Heading } from "@chakra-ui/react";
+import { Box, Text, Icon, Flex, Heading, Divider, Avatar } from "@chakra-ui/react";
 import { FiArrowLeft } from "react-icons/fi";
 import MDXWrapper from "components/MDXWrapper";
 
@@ -27,12 +27,13 @@ const BlogPost = ({ frontmatter, content }) => {
           {frontmatter.title}
         </Heading>
         <Text>
-          {frontmatter.date} | {frontmatter.readingtime}
+          🗓️ {frontmatter.date} | ⏱️ {frontmatter.readingtime}
         </Text>
       </Box>
       <MDXWrapper>
         <MDXRemote {...content} />
       </MDXWrapper>
+      <Box mb={"4"} />
     </>
   );
 };
