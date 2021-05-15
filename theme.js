@@ -37,8 +37,30 @@ const styles = {
       "h1, h2, h3, h4, h5, h6": {
         fontWeight: "bold",
       },
+      h1: {
+        fontSize: "2xl",
+        mt: "6",
+        mb: "1",
+      },
+      h2: {
+        fontSize: "xl",
+        mt: "6",
+        mb: "2",
+      },
+      h3: {
+        fontSize: "lg",
+      },
+      p: {
+        mb: "4",
+      },
+      blockquote: {
+        "& p": {
+          mb: "0",
+        },
+      },
       pre: {
         w: ["xs", "md", "xl", "2xl"],
+        mb: "4",
         borderRadius: "lg",
         bg: props.colorMode === "dark" ? "gray.900" : "gray.100",
         fontFamily: "Fira Code",
@@ -55,6 +77,32 @@ const styles = {
           borderRadius: "lg",
           bg: props.colorMode === "dark" ? "gray.600" : "gray.300",
         },
+      },
+      code: {
+        px: "1",
+        py: "0.1rem",
+        fontSize: "xs",
+        fontWeight: "normal",
+        color: props.colorMode === "dark" ? "white" : "black",
+        bg: props.colorMode === "dark" ? "gray.700" : "gray.100",
+        border: "1px solid",
+        borderColor: props.colorMode === "dark" ? "brand.purple500" : "gray.300",
+        borderRadius: "md",
+      },
+      ul: {
+        listStylePosition: "inside",
+        mb: "8",
+      },
+      ol: {
+        listStylePosition: "inside",
+        mb: "8",
+      },
+      li: {
+        pl: "1",
+        mb: "2",
+      },
+      hr: {
+        mb: "8",
       },
     },
   }),
