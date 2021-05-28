@@ -1,7 +1,4 @@
 import "focus-visible/dist/focus-visible";
-import "@fontsource/inter/700.css";
-import "@fontsource/inter/500.css";
-import "@fontsource/fira-code";
 import { MDXProvider } from "@mdx-js/react";
 import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "components/Layout";
