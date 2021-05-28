@@ -28,7 +28,7 @@ const styles = {
     "p, ul, ol": {
       fontSize: ["0.85em", "sm"],
       letterSpacing: "tight",
-      color: props.colorMode === "dark" ? "gray.300" : "gray.700",
+      color: props.colorMode === "dark" ? "gray.300" : "gray.600",
     },
     strong: {
       color: props.colorMode === "dark" ? "white" : "black",
@@ -62,7 +62,7 @@ const styles = {
         w: ["xs", "md", "xl", "2xl"],
         mb: "4",
         borderRadius: "lg",
-        bg: props.colorMode === "dark" ? "gray.900" : "gray.100",
+        bg: props.colorMode === "dark" ? "gray.900" : "gray.800",
         fontFamily: "Fira Code",
         fontSize: ["xs", "sm"],
         "&::-webkit-scrollbar": {
@@ -75,7 +75,7 @@ const styles = {
         },
         "&::-webkit-scrollbar-thumb": {
           borderRadius: "lg",
-          bg: props.colorMode === "dark" ? "gray.600" : "gray.300",
+          bg: "gray.600",
         },
       },
       code: {
@@ -86,7 +86,7 @@ const styles = {
         color: props.colorMode === "dark" ? "white" : "black",
         bg: props.colorMode === "dark" ? "gray.700" : "gray.100",
         border: "1px solid",
-        borderColor: props.colorMode === "dark" ? "brand.purple500" : "gray.300",
+        borderColor: props.colorMode === "dark" ? "gray.600" : "gray.300",
         borderRadius: "md",
       },
       ul: {
