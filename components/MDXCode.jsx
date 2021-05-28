@@ -1,13 +1,12 @@
-import { Box, useColorMode } from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import nightowllight from "prism-react-renderer/themes/nightOwlLight";
 import nightowldark from "prism-react-renderer/themes/nightOwl";
 
 const MDXCode = ({ children, className }) => {
   const { colorMode } = useColorMode();
   const language = className.replace(/language-/, "");
   return (
-    <Highlight {...defaultProps} theme={colorMode === "dark" ? nightowldark : nightowllight} code={children} language={language}>
+    <Highlight {...defaultProps} theme={nightowldark} code={children} language={language}>
       {({ className, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={{ overflowX: "auto", whiteSpace: "nowrap", paddingTop: "2em", paddingLeft: "1em" }}>
           {tokens.map((line, i) => (
